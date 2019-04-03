@@ -1,0 +1,35 @@
+Have a basic app. Our sample can be found at… (https://github.com/duara-systems/moringa_sample_django_presentation.git)
+
+
+step 1
+ (install and initialize an empty repository to keep track of your changes)
+
+
+i. git init
+ii. git add <file(s)>
+iii. git commit -m “your intuitive description or message”
+
+
+
+(set up the remote repo on the launched virtual machine)
+
+<ensure >
+
+i. ssh username@ip
+ii. mkdir {reponame.git}
+iii. git init --bare
+iv. cd hooks
+v. touch post-receive
+vi. vim post-receive
+vii. chmod u+x post-receive
+vii. code sample in next page, indicate paths correctly and the deploy branch as you wish.
+
+
+(on local repo, add the remote repo previously created above)
+
+
+i. git remote add deploy username@ip:path/to/bare/repo-folder
+ii. git push deploy <deploybranch>
+
+
+(setting up uwsgi to serve django app-demo not meant for production alone)
