@@ -33,3 +33,10 @@ ii. git push deploy <deploybranch>
 
 
 (setting up uwsgi to serve django app-demo not meant for production alone)
+i. sudo apt update
+ii. sudo apt install python3-pip
+iii. export LC_ALL=en_US.UTF-8
+iv. pip install -r requirements_deploy.txt
+iv. python3 manage.py runserver
+v. uwsgi --ini uwsgi.ini
+vi. ensure security groups has been set
