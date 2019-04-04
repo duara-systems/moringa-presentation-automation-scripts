@@ -1,6 +1,6 @@
 #!/bin/bash
-GIT_DIR="/home/ubuntu/presentation/moringa.git/"
-TARGET="/home/ubuntu/presentation/moringa"
+GIT_DIR="/home/ubuntu/moringa.git/"
+TARGET="/home/ubuntu/moringa"
 DEPLOY_BRANCH="master"
 while read oldrev newrev ref    
 do
@@ -12,7 +12,7 @@ do
                 sudo pkill uwsgi
 				cd $TARGET
 				python3 manage.py collectstatic --no-input
-				mkdir ~/log
+				mkdir ~/log 2> /dev/null || true
 				/home/ubuntu/.local/bin/uwsgi --daemonize=/home/ubuntu/log/moringa.log $TARGET/uwsgi.ini 
         else
                 echo "Ref $ref successfully received. Doing nothing: only the ${DEPLOY_BRANCH} branch may be deployed to production... "
