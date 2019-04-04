@@ -36,7 +36,8 @@ ii. git push deploy <deploybranch>
 i. sudo apt update
 ii. sudo apt install python3-pip
 iii. export LC_ALL=en_US.UTF-8
-iv. pip install -r requirements_deploy.txt
-iv. python3 manage.py runserver
-v. uwsgi --ini uwsgi.ini
-vi. ensure security groups has been set
+iv. pip install -r requirements_deploy.txt(pip3 install --upgrade -r requirements_deploy.txt)
+iv. python3 manage.py collectstatic 
+v. python3 manage.py runserver
+vi. uwsgi --ini uwsgi.ini
+vii. ensure security groups has been set
