@@ -10,10 +10,10 @@ do
         echo "Deploy branch:$ref received. Deploying deploy branch to production..."
         git --work-tree=$TARGET --git-dir=$GIT_DIR checkout -f $DEPLOY_BRANCH
         sudo pkill uwsgi
-		cd $TARGET
-		python3 manage.py collectstatic --no-input
-		mkdir ~/log 2> /dev/null || true
-		/home/ubuntu/.local/bin/uwsgi --daemonize=/home/ubuntu/log/moringa.log $TARGET/uwsgi.ini 
+	cd $TARGET
+	python3 manage.py collectstatic --no-input
+	mkdir ~/log 2> /dev/null || true
+	/home/ubuntu/.local/bin/uwsgi --daemonize=/home/ubuntu/log/moringa.log $TARGET/uwsgi.ini 
     else
         echo "Ref $ref successfully received. Doing nothing: only the ${DEPLOY_BRANCH} branch may be deployed to production... "
     fi
