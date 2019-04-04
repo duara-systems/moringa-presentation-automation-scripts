@@ -18,5 +18,4 @@ do
                 echo "Ref $ref successfully received. Doing nothing: only the ${DEPLOY_BRANCH} branch may be deployed to production... "
         fi
 done
-
-~                                     
+                                  
